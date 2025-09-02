@@ -1,0 +1,67 @@
+@charset "utf-8";
+*{
+  margin: 0;
+  padding: 0;
+}
+body{
+  font-family: 'メイリオ','Meiryo','Hiragino Kaku Gothic Pro', sans-serif;
+  color: #000;
+  background: #fff;
+  grid-template-rows: auto 1fr auto;
+  gap: 20px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+header{
+  background-image: url(../images/friend.jpg);
+}
+
+nav#sidebar{
+  background-color: #f0f0f0;
+  opacity: 1;
+  position: sticky;
+  top: 1;
+  padding: 10px;
+  height: fit-content
+}
+nav#sidebar ul{
+  padding: 5px 0;
+}
+section#container{
+  flex: 1;
+  display: grid;
+  grid-template-columns: 1fr 9fr; /* 左: 1/4幅、右: 3/4幅 */
+  gap: 20px;
+  height: 100vh;
+}
+main{
+  padding: 20px;
+}
+main h2{
+  font-size: 1.8rem;
+  display: flex;
+  justify-content: center;
+}
+main table{
+  width:  1500px;
+  display:flex;
+  justify-content:center;
+  background-color:#fff;
+  margin: 0 auto;
+  border-spacing: 5px;
+
+}
+main table tr th,
+main table tr td{
+  border: 1px solid #000;
+}
+main table tr td img{
+  vertical-align: bottom;
+}
+/*.expl th,td{
+  height: 120px;
+}*/
+main table tr th{
+  width: 3rem;
+}
