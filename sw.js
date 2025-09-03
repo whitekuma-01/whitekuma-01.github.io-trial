@@ -19,7 +19,7 @@ self.addEventListener("install", (event) => {
     (async () => {
       const cache = await caches.open(CACHE_NAME);
       cache.addAll(APP_STATIC_RESOURCES);
-    })(),
+    })()
   );
 });
 
@@ -33,11 +33,10 @@ self.addEventListener("activate", (event) => {
           if (name !== CACHE_NAME) {
             return caches.delete(name);
           }
-          return undefined;
-        }),
+        })
       );
       await clients.claim();
-    })(),
+    })()
   );
 });
 
@@ -54,13 +53,13 @@ self.addEventListener("fetch", (event) => {
   event.respondWith(
     (async () => {
       const cache = await caches.open(CACHE_NAME);
-      const cachedResponse = await cache.match(event.request.url);
+      const cachedResponse = await cache.match(event.request);
       if (cachedResponse) {
         // Return the cached response if it's available.
         return cachedResponse;
       }
       // If resource isn't in the cache, return a 404.
       return new Response(null, { status: 404 });
-    })(),
+    })()
   );
 });
